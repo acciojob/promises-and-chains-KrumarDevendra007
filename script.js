@@ -1,14 +1,14 @@
 //your JS code here. If required.
-const form = document.getElementById("userForm");
+const submit = document.getElementById("btn");
 
-form.addEventListener("submit", (event) => {
+submit.addEventListener("ckick", () => {
 
 	const age = document.getElementById("age").value;
     const name = document.getElementById("name").value;
 
-	const ageNum = parseInt(age, 10);
+	const ageNum = parseInt(age);
 
-	checkAge(name, age)
+	checkAge(name, ageNum)
 		.then(message1 => {
 			console.log(message1);
 		})
@@ -19,7 +19,7 @@ form.addEventListener("submit", (event) => {
 
 const checkAge = () => {
 
-	return new Promise(resolve, reject){
+	return new Promise((resolve, reject) => {
 		setTimeOut(() => {
 			if(age > 18){
 				resolve(`Welcome, ${name}. You can vote.`);
@@ -28,5 +28,5 @@ const checkAge = () => {
 				reject(`Oh sorry ${name}. You aren't old enough.`);
 			}
 		}, 4000);
-	}
-}
+	});
+};
